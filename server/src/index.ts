@@ -7,7 +7,7 @@ import morgan from "morgan";
 
 import dashboardRoutes from "./routes/dashboardRoutes";
 import expenseRoutes from "./routes/expenseRoutes";
-// import productRoutes from "./routes/productRoutes";
+import productRoutes from "./routes/productRoutes";
 // import userRoutes from "./routes/userRoutes";
 
 dotenv.config();
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/dashboard", dashboardRoutes);
-// app.use("/products", productRoutes);
+app.use("/products", productRoutes);
 // app.use("/users", userRoutes);
 app.use("/expenses", expenseRoutes);
 
