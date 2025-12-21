@@ -29,7 +29,7 @@ export const createProduct = async (
 ): Promise<void> => {
   try {
     const { productId, name, price, rating, stockQuantity } = req.body;
-    console.log(productId, name, price, rating, stockQuantity);
+
     const product = await prisma.products.create({
       data: {
         productId,
@@ -40,11 +40,8 @@ export const createProduct = async (
       },
     });
 
-    console.log(product);
-
     res.status(201).json(product);
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Error creating product." });
   }
 };
