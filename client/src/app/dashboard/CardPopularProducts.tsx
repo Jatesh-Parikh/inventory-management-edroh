@@ -10,7 +10,7 @@ const CardPopularProducts = () => {
   return (
     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl pb-16">
       {isLoading ? (
-        <div className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
+        <div className="flex justify-center items-center w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
       ) : (
         <>
           <h3 className="text-lg font-semibold px-7 pt-5 pb-2">

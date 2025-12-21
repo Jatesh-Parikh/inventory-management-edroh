@@ -47,7 +47,7 @@ const CardExpenseSummary = () => {
   return (
     <div className="row-span-3 bg-white shadow-md rounded-2xl flex flex-col justify-between">
       {isLoading ? (
-        <div className="w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
+        <div className="flex justify-center items-center w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
       ) : (
         <>
           {/* Header */}
