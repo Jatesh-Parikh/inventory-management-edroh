@@ -9,16 +9,26 @@ import dashboardRoutes from "./routes/dashboardRoutes";
 import expenseRoutes from "./routes/expenseRoutes";
 import productRoutes from "./routes/productRoutes";
 import userRoutes from "./routes/userRoutes";
+import path from "path";
 
 dotenv.config();
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json());
-app.use(helmet());
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
+app.use("/assets", express.static(path.join(process.cwd(), "assets")));
 
 app.use("/dashboard", dashboardRoutes);
 app.use("/products", productRoutes);

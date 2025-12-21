@@ -21,10 +21,9 @@ import {
 } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
-import type { WebStorage } from "redux-persist/lib/types";
 
 // Redux Persistence
-const createNoopStorage = (): WebStorage => {
+const createNoopStorage = () => {
   return {
     getItem(_key: string) {
       return Promise.resolve(null);
@@ -38,7 +37,7 @@ const createNoopStorage = (): WebStorage => {
   };
 };
 
-const storage: WebStorage =
+const storage =
   typeof window === "undefined"
     ? createNoopStorage()
     : createWebStorage("local");
