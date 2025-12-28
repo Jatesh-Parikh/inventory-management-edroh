@@ -10,6 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import Loading from "../(components)/Loading";
 
 const CardSalesSummary = () => {
   const { data, isLoading, isError } = useGetDashboardMetricsQuery();
@@ -45,7 +46,7 @@ const CardSalesSummary = () => {
   return (
     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
       {isLoading ? (
-        <div className="flex justify-center items-center w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
+        <Loading />
       ) : (
         <>
           {/* Header */}

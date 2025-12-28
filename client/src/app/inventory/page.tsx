@@ -3,6 +3,7 @@
 import { useGetProductsQuery } from "@/state/api";
 import Header from "../(components)/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import Loading from "../(components)/Loading";
 
 const columns: GridColDef[] = [
   {
@@ -41,9 +42,7 @@ const Inventory = () => {
   const { data: products, isError, isLoading } = useGetProductsQuery();
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin" />
-    );
+    return <Loading />;
   }
 
   if (isError || !products) {
